@@ -1,0 +1,27 @@
+﻿@model OrderCreateUpdateVm
+
+<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#addArticleModal">Добавить товар</button>
+<div id="addArticleModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form asp-action="AddSelectedArticle">
+                    <div class="my-1">
+                        <label class="form-label">Артикул</label>
+                        <select class="form-select" asp-items="Model.AvailableArticles" asp-for="ArticleToAdd.Id">
+                            <option value="">Выберите товар</option>
+                        </select>
+                        <span class="text-danger" asp-validation-for="ArticleToAdd.Id"></span>
+                    </div>
+                    <div class="my-1">
+                        <label class="form-label">Количество</label>
+                        <input class="form-control" asp-for="ArticleToAdd.Quantity" />
+                        <span class="text-danger" asp-validation-for="ArticleToAdd.Quantity"></span>
+                    </div>
+                    <input asp-for="Id" type="hidden" />
+                    <button class="btn btn-primary my-1" type="submit">Добавить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

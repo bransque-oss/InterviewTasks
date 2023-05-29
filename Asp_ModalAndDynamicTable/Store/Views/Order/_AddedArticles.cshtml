@@ -1,0 +1,29 @@
+﻿@model OrderCreateUpdateVm   
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Артикул</th>
+            <th>Название</th>
+            <th>Количество</th>
+            <th>Сумма</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (var i = 0; i < Model.AddedArticles.Count(); i++)
+        {
+            <tr>
+                <td>
+                    <input asp-for="AddedArticles[i].Id" type="hidden" />
+                    @Model.AddedArticles[i].Id
+                </td>
+                <td>@Model.AddedArticles[i].Name</td>
+                <td>
+                    <input asp-for="AddedArticles[i].Quantity" type="hidden" />
+                    @Model.AddedArticles[i].Quantity
+                </td>
+                <td>@Model.AddedArticles[i].Total.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>

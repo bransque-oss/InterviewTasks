@@ -1,0 +1,22 @@
+﻿@model OrderCreateUpdateVm
+
+<h4>Создание нового заказа</h4>
+
+<div class="my-4">
+    <div class="my-4">
+        @await Html.PartialAsync("_AddArticleModal", Model)
+    </div>
+    <form class="my-4" asp-action="Create">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        @await Html.PartialAsync("_AddedArticles", Model)
+        <div class="my-4">
+            <a class="btn btn-secondary" asp-action="Index">К списку заказов</a>
+            <button id="saveBtn" class="btn btn-primary" type="submit" disabled>Сохранить заказ</button>
+        </div>
+    </form>
+</div>
+
+<script src="~/scripts/buttonState.js"></script>
+<script>
+    changeBtnState(@Model.HasChanges.ToString().ToLower());
+</script>

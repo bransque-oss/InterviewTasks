@@ -1,0 +1,10 @@
+﻿@model ErrorVm
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h4>Error.</h4>
+<h4>Something went wrong.</h4>
+<h4>Error message: @Model.ErrorMessage</h4>
+
+<a class="btn btn-secondary" asp-action="Index">Вернуться на главную страницу</a>

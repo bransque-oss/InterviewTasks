@@ -1,0 +1,23 @@
+﻿@model IEnumerable<OrderSimpleVm>
+
+<h4>Список заказов</h4>
+
+<a class="btn btn-secondary my-4" asp-action="Create">Создать заказ</a>
+
+<table class="table table-bordered">
+    <thead class="table">
+        <tr>
+            <th>Номер заказа</th>
+            <th>Сумма</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td><a asp-action="OrderDetails" asp-route-id="@order.Id">@order.Id</a></td>
+                <td>@order.Total.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>
